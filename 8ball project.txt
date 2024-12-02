@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+enum Magic8BallResponse {
+    Definitely_NOT,
+    NO,
+    I_DONT_THINK_SO,
+    HMMM_MAYBE,
+    I_BELIEVE_SO,
+    YES,
+    Absolutely_YES
+};
+
+int main() {
+    // Seed the random number generator with the current time
+    srand(time(0));
+
+    // Ask the user to think of a yes/no question
+    cout << "Think of a yes/no question, and then press any key to continue." << endl;
+    cin.get();  // Wait for the user to press a key
+
+    // Generate a random number between 0 and 6
+    int randomResponse = rand() % 7;
+
+    // Output the Magic 8-Ball response based on the random number
+    switch (randomResponse) {
+        case Definitely_NOT:
+            cout << "Definitely NOT!" << endl;
+            break;
+        case NO:
+            cout << "No" << endl;
+            break;
+        case I_DONT_THINK_SO:
+            cout << "I don’t think so…" << endl;
+            break;
+        case HMMM_MAYBE:
+            cout << "Hmmm… maybe?" << endl;
+            break;
+        case I_BELIEVE_SO:
+            cout << "I believe so…" << endl;
+            break;
+        case YES:
+            cout << "Yes" << endl;
+            break;
+        case Absolutely_YES:
+            cout << "Absolutely YES!" << endl;
+            break;
+        default:
+            cout << "I cannot answer at this time!" << endl;
+    }
+
+    return 0;
+}
